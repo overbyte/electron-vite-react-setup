@@ -4,7 +4,7 @@ import started from 'electron-squirrel-startup';
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (started) {
-    app.quit();
+  app.quit();
 }
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -41,25 +41,25 @@ const createWindow = () => {
     allowRunningInsecureContent: true,
   });
 
-    console.log('dev server url', MAIN_WINDOW_VITE_DEV_SERVER_URL);
-    console.log('main window vite name', MAIN_WINDOW_VITE_NAME);
+  console.log('dev server url', MAIN_WINDOW_VITE_DEV_SERVER_URL);
+  console.log('main window vite name', MAIN_WINDOW_VITE_NAME);
 
-    mainWindow.setMenu(null);
+  mainWindow.setMenu(null);
 
-    // and load the index.html of the app.
-    if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
-        mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
-    } else {
-        mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
-    }
+  // and load the index.html of the app.
+  if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+    mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
+  } else {
+    mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
+  }
 
-    mainWindow.on('closed', function () {
-        console.log('window closed', MAIN_WINDOW_VITE_NAME);
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        mainWindow = null;
-    });
+  mainWindow.on('closed', function () {
+    console.log('window closed', MAIN_WINDOW_VITE_NAME);
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null;
+  });
 };
 
 app.on('ready', createWindow);
@@ -68,17 +68,17 @@ app.on('ready', createWindow);
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('activate', function () {
-    // On OS X it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (mainWindow === null) {
-        createWindow();
-    }
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow();
+  }
 });
 
 // In this file you can include the rest of your app's specific main process

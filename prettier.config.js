@@ -1,4 +1,4 @@
-module.exports = {
+const config = {
   printWidth: 120,
   trailingComma: 'es5',
   tabWidth: 2,
@@ -7,3 +7,5 @@ module.exports = {
   htmlWhitespaceSensitivity: 'ignore',
   bracketSameLine: true,
 };
+
+export default config;
