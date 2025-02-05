@@ -26,20 +26,20 @@ app.commandLine.appendSwitch('use-gl', 'desktop');
 app.commandLine.appendSwitch('enable-features', 'VaapiVideoDecoder');
 
 const createWindow = () => {
-    // Create the browser window.
-    const mainWindow = new BrowserWindow({
-        frame: false,
-        //enableLargerThanScreen: true, DON'T DO THIS! SEE ABOVE.
-        //width : ...                   DON'T DO THIS! SEE ABOVE.
-        //height: ...                   DON'T DO THIS! SEE ABOVE.
-        fullscreen: true,
-        webPreferences: {
-            nodeIntegration: true,
-            webSecurity: false,
-            preload: path.join(__dirname, 'preload.js'),
-        },
-        allowRunningInsecureContent: true,
-    });
+  // Create the browser window.
+  mainWindow = new BrowserWindow({
+    frame: false,
+    //enableLargerThanScreen: true, DON'T DO THIS! SEE ABOVE.
+    //width : ...                   DON'T DO THIS! SEE ABOVE.
+    //height: ...                   DON'T DO THIS! SEE ABOVE.
+    fullscreen: true,
+    webPreferences: {
+      nodeIntegration: true,
+      webSecurity: false,
+      preload: path.join(__dirname, 'preload.js'),
+    },
+    allowRunningInsecureContent: true,
+  });
 
     console.log('dev server url', MAIN_WINDOW_VITE_DEV_SERVER_URL);
     console.log('main window vite name', MAIN_WINDOW_VITE_NAME);
